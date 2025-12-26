@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=910, initial-scale=1.0" />
+  <title>واجهة المخدر</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="app.js" defer></script>
+  <button id="toggle-dark" class="btn ghost">🌙 الوضع المظلم</button>
+</head>
+<body>
+  <main class="anesthesia-container">
+    <!-- رأس الصفحة -->
+    <header class="anesthesia-header">
+      <img src="an.png" alt="رمز واجهة المخدر" class="header-icon" />
+      <h1 class="header-title">واجهة المخدر</h1>
+    </header>
+
+    <!-- شبكة التنقل -->
+    <section class="anesthesia-grid">
+      <div class="nav-item">
+        <div class="circle">
+          <img src="anairway.png" alt="ادارة مجرى الهواء" />
+        </div>
+        <button class="btn nav-btn" data-target="n/index.html">ادارة مجرى الهواء</button>
+      </div>
+      <div class="nav-item">
+        <div class="circle">
+          <img src="anan.png" alt="ادوية التخدير" />
+        </div>
+        <button class="btn nav-btn" data-target="drugs.html">ادوية التخدير</button>
+      </div>
+      <div class="nav-item">
+        <div class="circle">
+          <img src="anstaff.png" alt="عمليات اليوم" />
+        </div>
+        <button class="btn nav-btn" data-target="operations.html">عمليات اليوم</button>
+      </div>
+      <div class="nav-item">
+        <div class="circle">
+          <img src="anpage.png" alt="ورقة التخدير" />
+        </div>
+        <button class="btn nav-btn" data-target="sheet.html">ورقة التخدير</button>
+      </div>
+    </section>
+
+    <!-- زر الرجوع -->
+    <footer class="back-footer">
+      <button class="btn primary back-btn" onclick="window.location.href='index.html'">رجوع للرئيسية</button>
+    </footer>
+  </main>
+</body>
+</html>

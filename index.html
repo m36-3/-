@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=910, initial-scale=1.0" />
+  <title>النظام الطبي - الرئيسية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <button id="toggle-dark" class="btn ghost">🌙 الوضع المظلم</button>
+</head>
+<body>
+  <!-- طبقة تعتيم/طمس عند ظهور تسجيل الدخول -->
+  <div id="app-blur"></div>
+
+  <!-- نافذة تسجيل الدخول -->
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+      <h2 class="modal-title">تسجيل الدخول</h2>
+      <form id="login-form" autocomplete="off">
+        <div class="form-row">
+          <label for="username">المعرف / اسم المستخدم</label>
+          <input type="text" id="username" name="username" placeholder="مثال: an1" required />
+        </div>
+        <div class="form-row">
+          <label for="code">الرمز السري</label>
+          <input type="password" id="code" name="code" placeholder="••••" required />
+        </div>
+        <button type="submit" class="btn primary">تأكيد</button>
+        <p id="login-error" class="error-msg" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- الحاوية الرئيسية ثابتة الأبعاد -->
+  <main class="app-container">
+    <!-- الجهة اليسرى: أربع واجهات تنقل -->
+    <section class="left-nav">
+      <div class="nav-grid">
+        <!-- عنصر 1: واجهة Ai -->
+        <div class="nav-item">
+          <div class="circle">
+            <img src="ai.png" alt="واجهة Ai" />
+          </div>
+          <button class="btn nav-btn" data-target="ai.html">واجهة Ai</button>
+        </div>
+        <!-- عنصر 2: واجهة المخدر -->
+        <div class="nav-item">
+          <div class="circle">
+            <img src="an.png" alt="واجهة المخدر" />
+          </div>
+          <button class="btn nav-btn" data-target="anesthesia.html">واجهة المخدر</button>
+        </div>
+        <!-- عنصر 3: واجهة الكادر -->
+        <div class="nav-item">
+          <div class="circle">
+            <img src="staff.png" alt="واجهة الكادر" />
+          </div>
+          <button class="btn nav-btn" data-target="staff.html">واجهة الكادر</button>
+        </div>
+        <!-- عنصر 4: واجهة المخزن -->
+        <div class="nav-item">
+          <div class="circle">
+            <img src="storg.png" alt="واجهة المخزن" />
+          </div>
+          <button class="btn nav-btn" data-target="storg.html">واجهة المخزن</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- الجهة اليمنى: معلوماتك الشخصية -->
+    <aside class="right-panel">
+      <h3 class="panel-title">معلوماتك الشخصية</h3>
+
+      <div class="avatar-wrap">
+        <img id="user-photo" src="assets/img/users/placeholder.png" alt="صورة المستخدم" />
+      </div>
+
+      <div class="info-fields">
+        <div class="field">
+          <label>اسمك</label>
+          <input type="text" id="user-name" readonly />
+        </div>
+        <div class="field">
+          <label>المستشفى</label>
+          <input type="text" id="user-hospital" readonly />
+        </div>
+        <div class="field">
+          <label>المسمى الوظيفي</label>
+          <input type="text" id="user-title" readonly />
+        </div>
+      </div>
+
+      <button id="confirm-btn" class="btn confirm">تسجيل حضور</button>
+      <p id="confirm-msg" class="confirm-msg" aria-live="polite">تم تسجيل الحضور</p>
+
+      <p class="status-note">غير متصل بالانترنت</p>
+      <!-- زر تسجيل خروج (اختياري، صغير وغير مزعج) -->
+      <button id="logout-btn" class="btn ghost">تسجيل خروج</button>
+    </aside>
+  </main>
+
+  <script src="auth.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

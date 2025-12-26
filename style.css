@@ -1,0 +1,405 @@
+/* الخطوط والاتجاه العام */
+:root {
+  --bg: #f5f7fb;
+  --panel-bg: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #2563eb;
+  --primary-700: #1d4ed8;
+  --border: #e5e7eb;
+  --shadow: 0 8px 24px rgba(0,0,0,0.08);
+  --radius: 12px;
+}
+/* الوضع المظلم */
+body.dark-mode {
+  --bg: #111827;        /* خلفية الصفحة */
+  --text: #f9fafb;      /* النصوص */
+  --muted: #9ca3af;     /* النصوص الثانوية */
+  --border: #374151;    /* الحدود */
+  --panel-bg: #1f2937;  /* خلفية البطاقات */
+  --primary: #3b82f6;   /* اللون الأساسي */
+  --primary-700: #2563eb;
+  --shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+
+h1, h2, h3, .panel-title {
+  font-family: "Cairo", sans-serif;
+  font-weight: 700; /* هذا السطر هو الذي يجعل الخط غامق */
+}
+* { box-sizing: border-box; }
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Tajawal","Cairo", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  direction: rtl;
+}
+
+body { margin: 0; }
+body {
+  background: linear-gradient(135deg, #dbeafe, #eff6ff); /* أزرق فاتح متدرج */
+  background-size: 400% 400%;
+  animation: bgWave 12s ease infinite;
+}
+h1, h2, h3, .panel-title {
+  font-family: "Cairo", sans-serif;
+  font-weight: 700;
+}
+/* حركة خلفية ناعمة */
+@keyframes bgWave {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.app-container,
+.anesthesia-container,
+.page-wrap {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+.app-container,
+.anesthesia-container,
+.page-wrap {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+/* بداية الصفحة بتأثير تلاشي */
+body {
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+/* عند تحميل الصفحة */
+body.fade-in {
+  opacity: 1;
+}
+/* طبقة التعتيم/الطمس عند ظهور المودال */
+#app-blur {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  background: rgba(255,255,255,0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+  z-index: 90;
+}
+
+/* الحاوية الرئيسية ثابتة الأبعاد (مطابقة بصريًا للصورة) */
+.app-container {
+  width: 910px;
+  height: 515px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: 1fr 340px; /* يسار واسع + يمين بطاقة ثابتة */
+  gap: 18px;
+  align-items: stretch;
+}
+
+/* الجهة اليسرى */
+.left-nav {
+background: #f0fdfa; /* أخضر مائل للأزرق فاتح */
+  border: 1px solid #ccfbf1; /* حدود ناعمة */
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px 18px 14px;
+  display: flex;
+}
+
+.nav-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 16px 18px;
+  align-items: start;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* إطار دائري للصورة */
+.circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: #f9fafb;
+}
+.circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* زر تحت الدائرة */
+.nav-btn {
+  min-width: 140px;
+  height: 36px;
+  font-weight: 600;
+}
+
+/* الجهة اليمنى: بطاقة المعلومات */
+.right-panel {
+  background: #ecfdf5; /* أخضر طبي فاتح */
+  border: 1px solid #d1fae5; /* حدود خضراء أفتح */
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px 16px 14px;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto auto auto;
+  align-items: start;
+}
+
+.panel-title {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.avatar-wrap {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  margin: 6px auto 10px;
+}
+.avatar-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info-fields {
+  display: grid;
+  gap: 10px;
+}
+.field {
+  display: grid;
+  gap: 6px;
+}
+.field label {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 600; /* هذا السطر يجعل الخط غامق */
+}
+.field input {
+  height: 36px;
+  border: 1px solid #d1fae5;
+  border-radius: 8px;
+  padding: 0 10px;
+  font-size: 14px;
+  background: #fff;
+  color: var(--text);
+  font-weight: 500 /* هذا السطر يجعل النص داخل الحقول متوسط الغلاظة */
+}
+.nav-btn {
+  min-width: 140px;
+  height: 36px;
+  font-weight: 600;
+  background: #10b981; /* أخضر متوسط */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  transition: background 0.25s ease-in-out;
+}
+
+.nav-btn:hover {
+  background: #059669; /* أخضر داكن عند المرور */
+}
+/* الأزرار العامة */
+.btn {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 120ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.btn.primary {
+  background: var(--primary);
+  color: #fff;
+}
+.btn.primary:hover { background: var(--primary-700); transform: translateY(-1px); }
+
+.btn.confirm {
+  width: 100%;
+  height: 40px;
+  margin-top: 8px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+}
+.btn.confirm:hover { background: var(--primary-700); transform: translateY(-1px); }
+
+.btn.ghost {
+  margin-top: 8px;
+  background: transparent;
+  color: var(--muted);
+  border: 1px dashed var(--border);
+}
+.btn.ghost:hover { color: var(--text); }
+
+/* رسالة التأكيد */
+.confirm-msg {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: #059669; /* أخضر هادئ */
+  min-height: 18px;
+}
+
+/* ملاحظة الحالة أسفل البطاقة */
+.status-note {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* المودال */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(17,24,39,0.35);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+.modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-content {
+  width: 360px;
+  background: var(--panel-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  padding: 18px 16px 16px;
+}
+.modal-title {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.form-row {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.form-row label {
+  font-size: 13px;
+  color: var(--muted);
+}
+.form-row input {
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0 10px;
+  font-size: 14px;
+  background: #f9fafb;
+}
+.error-msg {
+  margin-top: 8px;
+  color: #dc2626;
+  font-size: 13px;
+  min-height: 18px;
+}
+
+/* حالة التعتيم عند إظهار المودال */
+body.modal-open #app-blur {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* تلميحات وصول */
+button:focus, input:focus {
+  outline: 2px solid rgba(37,99,235,0.35);
+  outline-offset: 2px;
+}
+/* صفحة واجهة المخدر */
+.anesthesia-container {
+  width: 910px;
+  height: 515px;
+  margin: 40px auto;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 12px;
+  padding: 18px;
+}
+
+.anesthesia-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.header-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+.header-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.anesthesia-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 24px;
+  justify-items: center;
+  align-items: start;
+}
+
+.back-footer {
+  display: flex;
+  justify-content: center;
+}
+.back-btn {
+  width: 180px;
+  height: 40px;
+  font-weight: 600;
+}
+
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.right-panel, .left-nav, .modal-content, .anesthesia-container {
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.field input {
+  background: var(--panel-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn.primary, .btn.confirm {
+  background: var(--primary);
+}
+.btn.primary:hover, .btn.confirm:hover {
+  background: var(--primary-700);
+}
